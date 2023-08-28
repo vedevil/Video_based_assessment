@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Question Pack</title>
+</head>
+<body>
+    <h1>Create Question Pack</h1>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+        
+        <label for="summary">Summary:</label><br>
+        <textarea id="summary" name="summary" rows="4" cols="50" required></textarea><br><br>
+        
+        <label for="max_attempts">Max Attempts:</label><br>
+        <input type="number" id="max_attempts" name="max_attempts" min="1" required><br><br>
+        
+        <label for="min_response_duration">Min Response Duration (seconds):</label><br>
+        <input type="number" id="min_response_duration" name="min_response_duration" min="1" required><br><br>
+        
+        <label for="max_response_duration">Max Response Duration (seconds):</label><br>
+        <input type="number" id="max_response_duration" name="max_response_duration" min="1" required><br><br>
+        
+        <label for="submit_screen_title">Submit Screen Title:</label><br>
+        <input type="text" id="submit_screen_title" name="submit_screen_title" required><br><br>
+        
+        <label for="submit_screen_message">Submit Screen Message:</label><br>
+        <textarea id="submit_screen_message" name="submit_screen_message" rows="4" cols="50" required></textarea><br><br>
+        
+        <label for="show_question_numbers">Show Question Numbers:</label>
+        <input type="checkbox" id="show_question_numbers" name="show_question_numbers"><br><br>
+        
+        <label for="feedback_url">Feedback URL:</label><br>
+        <input type="url" id="feedback_url" name="feedback_url" required><br><br>
+        
+        <label for="feedback_message">Feedback Message:</label><br>
+        <textarea id="feedback_message" name="feedback_message" rows="4" cols="50" required></textarea><br><br>
+        
+        <label for="feedback_button_text">Feedback Button Text:</label><br>
+        <input type="text" id="feedback_button_text" name="feedback_button_text" required><br><br>
+        
+        <label for="expiration_timestamp">Expiration Timestamp (milliseconds):</label><br>
+        <input type="number" id="expiration_timestamp" name="expiration_timestamp" min="0"><br><br>
+        
+        <label for="end_timestamp">End Timestamp (milliseconds):</label><br>
+        <input type="number" id="end_timestamp" name="end_timestamp" min="0"><br><br>
+        
+        <label for="ended_message">Ended Message:</label><br>
+        <textarea id="ended_message" name="ended_message" rows="4" cols="50"></textarea><br><br>
+        
+        <label for="require_linkedin">Require LinkedIn Username:</label>
+        <input type="checkbox" id="require_linkedin" name="require_linkedin"><br><br>
+        
+        <label for="linkedin_username">LinkedIn Username:</label><br>
+        <input type="text" id="linkedin_username" name="linkedin_username"><br><br>
+
+        <label for="ques_text">Question Text:</label>
+        <textarea name="ques_text" rows="4" cols="50"></textarea><br>
+
+        <label for="ques_type">Question Type:</label>
+        <input type="text" name="ques_type"><br>
+
+        <button type="submit">Create Question Pack</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Question Pack</title>
+</head>
+<body>
+    <h1>Edit Question Pack</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="title">Title:</label><br>
+        <input type="text" id="title" name="title" value="{{ question_pack.title }}" required><br><br>
+
+        <label for="summary">Summary:</label><br>
+        <textarea id="summary" name="summary" rows="4" cols="50" required>{{ question_pack.summary }}</textarea><br><br>
+
+        <label for="max_attempts">Max Attempts:</label><br>
+        <input type="number" id="max_attempts" name="max_attempts" min="1" value="{{ question_pack.max_attempts }}" required><br><br>
+
+        <label for="min_response_duration">Min Response Duration (seconds):</label><br>
+        <input type="number" id="min_response_duration" name="min_response_duration" min="1" value="{{ question_pack.min_response_duration }}" required><br><br>
+
+        <label for="max_response_duration">Max Response Duration (seconds):</label><br>
+        <input type="number" id="max_response_duration" name="max_response_duration" min="1" value="{{ question_pack.max_response_duration }}" required><br><br>
+
+        <label for="submit_screen_title">Submit Screen Title:</label><br>
+        <input type="text" id="submit_screen_title" name="submit_screen_title" value="{{ question_pack.submit_screen_title }}" required><br><br>
+
+        <label for="submit_screen_message">Submit Screen Message:</label><br>
+        <textarea id="submit_screen_message" name="submit_screen_message" rows="4" cols="50" required>{{ question_pack.submit_screen_message }}</textarea><br><br>
+
+        <label for="show_question_numbers">Show Question Numbers:</label>
+        <input type="checkbox" id="show_question_numbers" name="show_question_numbers" {% if question_pack.show_question_numbers %}checked{% endif %}><br><br>
+
+        <label for="feedback_url">Feedback URL:</label><br>
+        <input type="url" id="feedback_url" name="feedback_url" value="{{ question_pack.feedback_url }}" required><br><br>
+
+        <label for="feedback_message">Feedback Message:</label><br>
+        <textarea id="feedback_message" name="feedback_message" rows="4" cols="50" required>{{ question_pack.feedback_message }}</textarea><br><br>
+
+        <label for="feedback_button_text">Feedback Button Text:</label><br>
+        <input type="text" id="feedback_button_text" name="feedback_button_text" value="{{ question_pack.feedback_button_text }}" required><br><br>
+
+        <label for="expiration_timestamp">Expiration Timestamp (milliseconds):</label><br>
+        <input type="number" id="expiration_timestamp" name="expiration_timestamp" min="0" value="{{ question_pack.expiration_timestamp }}"><br><br>
+
+        <label for="end_timestamp">End Timestamp (milliseconds):</label><br>
+        <input type="number" id="end_timestamp" name="end_timestamp" min="0" value="{{ question_pack.end_timestamp }}"><br><br>
+
+        <label for="ended_message">Ended Message:</label><br>
+        <textarea id="ended_message" name="ended_message" rows="4" cols="50">{{ question_pack.ended_message }}</textarea><br><br>
+
+        <label for="require_linkedin">Require LinkedIn Username:</label>
+        <input type="checkbox" id="require_linkedin" name="require_linkedin" {% if question_pack.require_linkedin %}checked{% endif %}><br><br>
+
+        <label for="linkedin_username">LinkedIn Username:</label><br>
+        <input type="text" id="linkedin_username" name="linkedin_username" value="{{ question_pack.linkedin_username }}"><br><br>
+
+        <label for="ques_text">Question Text:</label>
+        <textarea name="ques_text" rows="4" cols="50"></textarea><br>
+
+        <label for="ques_type">Question Type:</label>
+        <input type="text" name="ques_type"><br>
+
+        <button type="submit">Update Question Pack</button>
+    </form>
+</body>
+</html>

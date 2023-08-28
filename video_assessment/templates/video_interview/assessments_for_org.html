@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assessments for Organization</title>
+</head>
+<body>
+    <h1>Assessments for Organization {{ org_id }}</h1>
+    <ul>
+        {% for assessment in assessments %}
+        {% if assessment.access_status %}
+            <li>
+                {{ assessment.title }}
+                <form method="post" action="/delete_assessment/{{assessment.org_id}}/{{ assessment.access_id }}/">
+                    {% csrf_token %}
+                    <button type="submit">Delete</button>
+                </form>
+                <form method="get" action="/update_assessment/{{ assessment.org_id }}/{{ assessment.access_id }}/">
+                    {% csrf_token %}
+                    <button type="submit">Update</button>
+                </form>
+            </li>
+            {% endif %}
+        {% empty %}
+            <li>No assessments found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
